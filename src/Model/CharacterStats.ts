@@ -1,5 +1,9 @@
 export class CharacterStats {
-  public evasion = new Evasion();
+  public evasion: Evasion<number> = {
+    melee: 0,
+    ranged: 0,
+    magic: 0,
+  };
   public accuracy = 0;
   public minHit = 0;
   public maxHit = 0;
@@ -18,8 +22,8 @@ export class CharacterStats {
   }
 }
 
-class Evasion {
-  public melee = 0;
-  public ranged = 0;
-  public magic = 0;
-}
+declare type Evasion<T> = {
+  melee: T;
+  ranged: T;
+  magic: T;
+};
